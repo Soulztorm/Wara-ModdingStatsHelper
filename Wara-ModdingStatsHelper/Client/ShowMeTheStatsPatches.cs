@@ -291,7 +291,6 @@ namespace ShowMeTheStats
         [PatchPrefix]
         static void Prefix(EEftScreenType eftScreenType)
         {
-            ConsoleScreen.LogError("Screen changed");
             if (eftScreenType == EEftScreenType.EditBuild || eftScreenType == EEftScreenType.WeaponModding)
             {
                 Globals.isWeaponModding = true;
