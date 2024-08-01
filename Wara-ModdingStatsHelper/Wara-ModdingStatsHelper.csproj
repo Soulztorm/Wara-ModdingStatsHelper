@@ -8,8 +8,9 @@
     <OutputType>Library</OutputType>
     <RootNamespace>ChooChoo-Wara-ModStats</RootNamespace>
     <AssemblyName>Wara-ModdingStatsHelper</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,49 +33,50 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\References145\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="Aki.Common">
-      <HintPath>..\..\References145\Aki.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Aki.Reflection">
-      <HintPath>..\..\References145\Aki.Reflection.dll</HintPath>
+      <HintPath>..\..\..\BepInEx\core\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\References145\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>..\..\References145\BepInEx.dll</HintPath>
+      <HintPath>..\..\..\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="Comfort, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\References145\Comfort.dll</HintPath>
+      <HintPath>..\..\..\EscapeFromTarkov_Data\Managed\Comfort.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\SPT-380\EscapeFromTarkov_Data\Managed\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>..\..\..\EscapeFromTarkov_Data\Managed\Sirenix.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Sirenix.Serialization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\References145\Sirenix.Serialization.dll</HintPath>
+    <Reference Include="spt-common">
+      <HintPath>..\..\..\BepInEx\plugins\spt\spt-common.dll</HintPath>
+    </Reference>
+    <Reference Include="spt-core">
+      <HintPath>..\..\..\BepInEx\plugins\spt\spt-core.dll</HintPath>
+    </Reference>
+    <Reference Include="spt-reflection">
+      <HintPath>..\..\..\BepInEx\plugins\spt\spt-reflection.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\References145\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\EscapeFromTarkov_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\SPT-380\EscapeFromTarkov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\EscapeFromTarkov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\References145\UnityEngine.InputLegacyModule.dll</HintPath>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\EscapeFromTarkov_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.InputModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\References145\UnityEngine.InputModule.dll</HintPath>
+      <HintPath>..\..\..\EscapeFromTarkov_Data\Managed\UnityEngine.InputModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\References145\UnityEngine.UI.dll</HintPath>
+      <HintPath>..\..\..\EscapeFromTarkov_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\EscapeFromTarkov_Data\Managed\UnityEngine.UIModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +92,6 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y "$(TargetDir)Wara-ModdingStatsHelper.dll" "T:\SPT-380\BepInEx\plugins"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y "$(TargetPath)" "$(ProjectDir)..\..\..\BepInEx\plugins"</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ShowMeTheStats
 {
-    [BepInPlugin("com.moddingstatshelper.aki", "Modding Stats Helper", "1.0")]
+    [BepInPlugin("com.moddingstatshelper.spt", "Modding Stats Helper", "1.0")]
     public class ShowMeTheStatsPlugin : BaseUnityPlugin
     {
         void Awake()
