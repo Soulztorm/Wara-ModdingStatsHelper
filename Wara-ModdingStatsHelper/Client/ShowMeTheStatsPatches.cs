@@ -48,6 +48,9 @@ namespace ShowMeTheStats
         {
             if (Globals.isWeaponModding)
             {
+                if (text != "")
+                    Globals.lastTooltipText = text;
+                    
                 // checks for a bug
                 if (text.Contains("EQUIPPED") || text.Contains("STASH"))
                 {
@@ -103,7 +106,7 @@ namespace ShowMeTheStats
 
                     }
                     // IF WE ARE COMPARING
-                    else if (!hoveringSlottedMod)
+                    else
                     {
                         List<ItemAttributeClass> replacingAttributes = GetAllAttributesNotInBlacklist(Globals.mod.Attributes);
                         List<ItemAttributeClass> slottedAttributes = GetAllAttributesNotInBlacklist(Globals.dropDownCurrentItem.Attributes);
@@ -120,7 +123,7 @@ namespace ShowMeTheStats
                                 //}
 
                                 string stringDisplayname = AlignTextToWidth(slottedAttribute.DisplayName.Trim() + ":");
-                                ItemAttributeClass replacingAttribute = replacingAttributes.Where(a => a.Id.ToString() == slottedAttribute.Id.ToString()).SingleOrDefault();
+                                ItemAttributeClass replacingAttribute = replacingAttributes.SingleOrDefault(a => a.Id.ToString() == slottedAttribute.Id.ToString());
 
                                 if (replacingAttribute != null && replacingAttribute.Base() != 0)
                                 {
@@ -197,7 +200,7 @@ namespace ShowMeTheStats
                             finalString += "<color=#39ff2b>SAME STATS</color><br>";
                         }
 
-                        text = firstString + finalString;
+                        text += "<br>" + firstString + finalString;
                     }
                 }
             }

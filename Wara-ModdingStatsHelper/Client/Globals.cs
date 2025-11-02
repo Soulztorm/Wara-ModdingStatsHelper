@@ -13,6 +13,8 @@ namespace ShowMeTheStats
         public static List<Slot> allSlots = new List<Slot>();
 
         public static SimpleTooltip simpleTooltip = null;
+        
+        public static string lastTooltipText = "";
 
         //public static Slot slotType = null;
 
@@ -56,6 +58,7 @@ namespace ShowMeTheStats
             simpleTooltip = null;
             //slotType = null;
             dropDownCurrentItem = null;
+            lastTooltipText = "";
             isKeyPressed = false;
         }
     }

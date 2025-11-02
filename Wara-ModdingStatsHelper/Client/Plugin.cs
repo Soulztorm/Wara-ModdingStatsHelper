@@ -25,16 +25,10 @@ namespace ShowMeTheStats
             if (Globals.isWeaponModding)
             {
                 bool isKeyDown = Input.GetKey(KeyCode.LeftControl);
-
-                if (isKeyDown && !Globals.isKeyPressed)
+                if ((isKeyDown && !Globals.isKeyPressed) || (!isKeyDown && Globals.isKeyPressed))
                 {
-                    Globals.isKeyPressed = true;
-                    Globals.simpleTooltip.Show("", null, 0.1f, null);
-                }
-                else if (!isKeyDown && Globals.isKeyPressed)
-                {
-                    Globals.isKeyPressed = false;
-                    Globals.simpleTooltip.Show("", null, 0.1f, null);
+                    Globals.isKeyPressed = !Globals.isKeyPressed;
+                    Globals.simpleTooltip.Show(Globals.lastTooltipText, null, 0.1f, null);
                 }
             }
         }
