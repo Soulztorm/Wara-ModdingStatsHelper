@@ -26,7 +26,7 @@ namespace ShowMeTheStats
             return text;
         }
 
-        public static string[] getDigitsFromStringValues(string attributeStringValue)
+        public static string[] GetDigitsFromStringValues(string attributeStringValue)
         {
             string extractedDigits = "";
             string extractedOperator = "";
@@ -53,7 +53,7 @@ namespace ShowMeTheStats
                 extractedType = " " + extractedType;
             }
 
-            string[] final = { extractedOperator, extractedDigits, extractedType };
+            string[] final = [extractedOperator, extractedDigits, extractedType];
 
             return final;
         }
@@ -64,8 +64,8 @@ namespace ShowMeTheStats
             //[1] = float
             //[2] = "%" string
 
-            string[] slottingAttributeExtracted = getDigitsFromStringValues(slottedAttributeStringValue);
-            string[] replacingAttributeExtracted = getDigitsFromStringValues(replacingAttributeStringValue);
+            string[] slottingAttributeExtracted = GetDigitsFromStringValues(slottedAttributeStringValue);
+            string[] replacingAttributeExtracted = GetDigitsFromStringValues(replacingAttributeStringValue);
 
             string subtracted = (float.Parse(replacingAttributeExtracted[0] + replacingAttributeExtracted[1]) - float.Parse(slottingAttributeExtracted[0] + slottingAttributeExtracted[1])).ToString(); //"F1" 
 
@@ -139,7 +139,9 @@ namespace ShowMeTheStats
 
         public static string SpaghettiLastStringValueOperatorCheck(string attributeStringValue, float attributeBase)
         {
-            if (attributeStringValue.Trim().ToUpper().Contains("LOUDNESS") || attributeStringValue.Trim().ToUpper().Contains("MOA") || attributeStringValue.Trim().ToUpper().Contains("MAX COUNT"))
+            if (attributeStringValue.Trim().ToUpper().Contains("LOUDNESS") ||
+                attributeStringValue.Trim().ToUpper().Contains("MOA") ||
+                attributeStringValue.Trim().ToUpper().Contains("MAX COUNT"))
             {
                 if (attributeStringValue.Contains("+"))
                 {
@@ -188,9 +190,9 @@ namespace ShowMeTheStats
             return attributeStringValue;
         }
 
-        public static List<ItemAttributeClass> GetAllAttributesNotInBlacklist(List<ItemAttributeClass> attributes)
+        public static List<ItemAttribute> GetAllAttributesNotInBlacklist(List<ItemAttribute> attributes)
         {
-            List<ItemAttributeClass> attributesResult = new List<ItemAttributeClass>();
+            List<ItemAttribute> attributesResult = [];
             foreach (var attribute in attributes)
             {
                 if (!Globals.statBlacklist.Any(x => x == attribute.Id.ToString()))

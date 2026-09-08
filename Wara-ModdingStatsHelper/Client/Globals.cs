@@ -10,10 +10,10 @@ namespace ShowMeTheStats
 
         public static Item mod = null;
 
-        public static List<Slot> allSlots = new List<Slot>();
+        public static List<Slot> allSlots = [];
 
         public static SimpleTooltip simpleTooltip = null;
-        
+
         public static string lastTooltipText = "";
 
         //public static Slot slotType = null;
@@ -23,7 +23,7 @@ namespace ShowMeTheStats
         public static bool isKeyPressed = false;
 
         //some stats are not very interesting to see and will clog up the ui more than anything, so we blacklist them
-        public static string[] statBlacklist = {
+        public static string[] statBlacklist = [
             EItemAttributeId.CompatibleWith.ToString(),
             EItemAttributeId.Weight.ToString(),
             EItemAttributeId.Size.ToString(),
@@ -48,7 +48,7 @@ namespace ShowMeTheStats
             EItemAttributeId.CheckTimeSpeed.ToString(),
             "AutoROF",
             "SemiROF",
-        };
+        ];
 
         public static void ClearAllGlobals()
         {
