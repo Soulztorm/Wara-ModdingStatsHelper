@@ -18,8 +18,6 @@ namespace ShowMeTheStats
             new DropDownSlotContextClosePatch().Enable();
         }
 
-
-
         void Update()
         {
             if (Globals.isWeaponModding)
