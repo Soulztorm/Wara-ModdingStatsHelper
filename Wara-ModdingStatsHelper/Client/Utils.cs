@@ -188,9 +188,9 @@ namespace ShowMeTheStats
             return attributeStringValue;
         }
 
-        public static List<ItemAttributeClass> GetAllAttributesNotInBlacklist(List<ItemAttributeClass> attributes)
+        public static List<ItemAttribute> GetAllAttributesNotInBlacklist(List<ItemAttribute> attributes)
         {
-            List<ItemAttributeClass> attributesResult = new List<ItemAttributeClass>();
+            List<ItemAttribute> attributesResult = new List<ItemAttribute>();
             foreach (var attribute in attributes)
             {
                 if (!Globals.statBlacklist.Any(x => x == attribute.Id.ToString()))

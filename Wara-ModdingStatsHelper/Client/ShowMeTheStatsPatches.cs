@@ -80,7 +80,7 @@ namespace ShowMeTheStats
                     // IF WE ARE NOT COMPARING
                     if (hoveringSlottedMod || Globals.isKeyPressed || Globals.dropDownCurrentItem == null)
                     {
-                        List<ItemAttributeClass> attributes = GetAllAttributesNotInBlacklist(Globals.mod.Attributes);
+                        List<ItemAttribute> attributes = GetAllAttributesNotInBlacklist(Globals.mod.Attributes);
 
                         foreach (var attribute in attributes)
                         {
@@ -108,8 +108,8 @@ namespace ShowMeTheStats
                     // IF WE ARE COMPARING
                     else
                     {
-                        List<ItemAttributeClass> replacingAttributes = GetAllAttributesNotInBlacklist(Globals.mod.Attributes);
-                        List<ItemAttributeClass> slottedAttributes = GetAllAttributesNotInBlacklist(Globals.dropDownCurrentItem.Attributes);
+                        List<ItemAttribute> replacingAttributes = GetAllAttributesNotInBlacklist(Globals.mod.Attributes);
+                        List<ItemAttribute> slottedAttributes = GetAllAttributesNotInBlacklist(Globals.dropDownCurrentItem.Attributes);
 
                         List<string> replacingAttributesDisplayed = new List<string>();
 
@@ -123,7 +123,7 @@ namespace ShowMeTheStats
                                 //}
 
                                 string stringDisplayname = AlignTextToWidth(slottedAttribute.DisplayName.Trim() + ":");
-                                ItemAttributeClass replacingAttribute = replacingAttributes.SingleOrDefault(a => a.Id.ToString() == slottedAttribute.Id.ToString());
+                                ItemAttribute replacingAttribute = replacingAttributes.SingleOrDefault(a => a.Id.ToString() == slottedAttribute.Id.ToString());
 
                                 if (replacingAttribute != null && replacingAttribute.Base() != 0)
                                 {
@@ -233,13 +233,13 @@ namespace ShowMeTheStats
         [PatchPrefix]
         static void Prefix(ModdingScreenSlotView slotView)
         {
-            FieldInfo fieldInfo = typeof(ModdingScreenSlotView).GetField("slot_0", BindingFlags.Instance | BindingFlags.NonPublic);
+            FieldInfo fieldInfo = typeof(ModdingScreenSlotView).GetField("_slot", BindingFlags.Instance | BindingFlags.NonPublic);
             if (fieldInfo != null)
             {
-                Slot slot_0 = (Slot)fieldInfo.GetValue(slotView);
-                if (slot_0.ContainedItem != null)
+                Slot slot = (Slot)fieldInfo.GetValue(slotView);
+                if (slot.ContainedItem != null)
                 {
-                    Globals.dropDownCurrentItem = slot_0.ContainedItem;
+                    Globals.dropDownCurrentItem = slot.ContainedItem;
                     //Globals.slotType = slot_0;
                 }
             }
